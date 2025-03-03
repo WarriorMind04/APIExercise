@@ -1,14 +1,5 @@
 import { useState, useEffect } from "react";
-
-interface Person {
-  name: {
-    first: string;
-    last: string;
-  };
-  picture: {
-    large: string;
-  };
-}
+import { Person } from "../types/peopleResponse";
 
 const useRandomPerson = () => {
   const [person, setPerson] = useState<Person | null>(null);
