@@ -1,30 +1,43 @@
-import { useState, useEffect } from "react";
-import { Person } from "../types/peopleResponse";
+"use client";
 
-const useRandomPerson = () => {
-  const [person, setPerson] = useState<Person | null>(null);
+import { useEffect, useState } from "react";
+import { Person } from "../types/person";
+import { PeopleResponse } from "../types/http/people.response";
+import axios from "axios";
+
+export const useRandomPerson = () => {
+  const [currentPerson, setPerson] = useState<Person | null>(null);
+  const [personHistory, setPersonHistory] = useState<Person[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const fetchNewPerson = async () => {
+  const fetchData = async () => {
+    setError(null);
     setLoading(true);
     try {
-      const response = await fetch("https://randomuser.me/api/");
-      const data = await response.json();
-      setPerson(data.results[0]);
-    } catch (error) {
-      console.error("Error fetching new person:", error);
+      const response = await axios.get<PeopleResponse>(
+        "https://randomuser.me/api/"
+      );
+      const data = response.data.results[0];
+      const person: Person = {
+        name: data.name.first + " " + data.name.last,
+        email: data.email,
+        birthday: data.dob.date,
+        phone: data.phone,
+        password: data.login.password,
+      };
+      setPerson(person);
+      setPersonHistory((personList) => [...personList, person]);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchNewPerson();
+    fetchData();
   }, []);
 
-  return {
-    person,
-    loading,
-    fetchNewPerson,
-  };
+  return { currentPerson, personHistory, loading, error, fetchData };
 };
