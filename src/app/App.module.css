@@ -1,0 +1,54 @@
+/* App.module.css */
+
+/* Asegurando que los elementos se alineen horizontalmente con flex */
+.appContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  width: 100%; /* Añadimos un ancho de 100% para el contenedor */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+}
+
+.leftSide {
+  flex-basis: 250px; /* Usamos flex-basis para limitar el ancho del HistoryBar */
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+}
+
+.centerContent {
+  flex-grow: 1; /* Hace que el contenido central ocupe el espacio restante */
+  max-width: 600px; /* Limita el ancho del PersonComponent */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+}
+
+h3 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #f1f1f1;
+}
+
+.historyItem img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

@@ -1,4 +1,5 @@
 export interface Person {
+  profile: string
   name: string
   email: string
   birthday: string

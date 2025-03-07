@@ -1,0 +1,44 @@
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profileImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .text {
+    font-size: 16px;
+    color: gray;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .iconButton {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  .iconButton.active {
+    background-color: blue;
+    color: white;
+  }
+  

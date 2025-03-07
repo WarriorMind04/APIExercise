@@ -1,0 +1,24 @@
+.historyBar {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-right: 2px solid #ddd;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  .historyItem {
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .historyItem:hover {
+    background-color: #e0e0e0;
+  }
+  
