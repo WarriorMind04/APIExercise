@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "../Card.module.css";
+import styles from "./Card.module.css";
 import { Person } from "../types/person";
 
 interface PersonComponentProps {

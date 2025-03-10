@@ -25,6 +25,7 @@ export const useRandomPerson = () => {
         birthday: data.dob.date,
         phone: data.phone,
         password: data.login.password,
+        profile: "",
       };
       setPerson(person);
       setPersonHistory((personList) => [...personList, person]);

@@ -1,5 +1,5 @@
-}"use client";
-import styles from "../HistoryBar.module.css";
+"use client";
+import styles from "./HistoryBar.module.css";
 import { Person } from "../types/person";
 
 interface HistoryBarProps {
@@ -13,7 +13,11 @@ export function HistoryBar({ history, onSelect }: HistoryBarProps) {
       <h3>History</h3>
       <ul className={styles.historyList}>
         {history.map((person, index) => (
-          <li key={index} onClick={() => onSelect(person)} className={styles.historyItem}>
+          <li
+            key={index}
+            onClick={() => onSelect(person)}
+            className={styles.historyItem}
+          >
             <img
               src={person.profile || "/default-avatar.png"}
               alt={person.name}
